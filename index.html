@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        ::before,
+        ::after {
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        label {
+            /* display: inline-block; */
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .container .main {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            width: 600px;
+            color: #fff;
+            box-shadow: 0 15px 15px;
+            background-image: url(background\ imag.jpeg);
+            background-size: cover;
+            background-repeat: no no-repeat;
+        }
+
+        .container .main .inputbox {
+            margin-top: 20px;
+        }
+
+        .container .main .inputbox input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            color: #000;
+            border: 1px solid black;
+            background-color: #fff;
+        }
+        .container .main .inputbox:first-child input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+            /* position: relative; */
+        }
+        .container .main .inputbox span {
+            display: block;
+            color: #999;
+            padding-bottom: 5px;
+        }
+
+        .container .main .flex {
+            display: flex;
+            gap: 15px;
+        }
+
+        .container .main .flex .inputbox {
+            flex: 1 0 50%;
+        }
+
+        .container .main .submit {
+            width: 100%;
+            background: #f00;
+            margin-top: 20px;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+
+        body {
+            font: 16px/2 system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #3498ab;
+            display: flex;
+            background-image: url(businessman-mobile-smartphone-credit-card-260nw-1529380166.webp);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #FF6;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+        }
+
+        header {
+            text-align: center;
+            border: 1px solid #000;
+            align-items: center;
+            font-size: 50px;
+        }
+
+        .btn {
+            vertical-align: middle;
+            font-size: 1rem;
+            border: 1px solid #888;
+            padding: 5px 12px;
+            background: transparent;
+            border-radius: 5px;
+            display: inline-block;
+            color: inherit;
+            height: 36px;
+        }
+        .main .submit{
+            box-shadow: 0 10px 10px ;
+            
+        }
+
+        .pay {
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            flex-flow: row wrap;
+            margin: 0 -1rem;
+            text-align: center;
+            justify-content: center;
+        }
+
+        [class^="col-"] {
+            flex: 1 0 auto;
+            padding: 0 1rem;
+        }
+
+        .col-3 {
+            flex-basis: 25%;
+            max-width: 25%;
+        }
+        .inputbox label{position: relative;}
+        .inputbox label span{position: absolute;top: 0; right: 14px; }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>Payment Details</h1>
+            <div class="row">
+                <div class="col-3"><img src="raupay credit card.png" alt="" height="70" width="70"></div>
+                <div class="col-3"><img src="american.card.png" alt="" height="70"></div>
+                <div class="col-3"><img src="master.card.png" alt="" height="70"></div>
+                <div class="col-3"><img src="visa.card.png" alt="" height="70" ></div>
+            </div>
+            <form name="form">
+                <div class="inputbox">
+                    <p>CARD NUMBER</p>
+                    <label><input type="text" name="cardNumber" class="cardNumber btn" placeholder="Valid Card Number" maxlength="16"   ><span></span></label>
+                </div>
+                <div class="flex">
+                    <div class="inputbox" >
+                        <p>EXPIRATION DATE</p>
+                        <label><input type="text" class="expiryDate" name="expiryDate" placeholder="YY /   YYYY" maxlength="9"><span></span></label>
+                    </div>
+                    <div class="inputbox">
+                        <p>CVV CODE</p>
+                        <label><input type="text" name="cvv" class="cvv btn" placeholder="CVV"
+                         maxlength="3"><span></span></label>
+                    </div>
+                </div>
+                <div class="inputbox">
+                    <p>CARD OWNER</p>
+                    <label><input type="text" name="owner" class="owner btn"
+                    placeholder="Card Owner Name"><span></span></label>
+                </div>
+                <div><input type="submit" class="submit btn"></div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+         document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.cardNumber').addEventListener('input', function(e) {
+                // let value= e.target.value;
+                // value = value.replace(/\D/g, '');
+
+              this.value = this.value.replace(/[^0-9]/g, ''); 
+
+            //   if(value.length > 4){
+            //     value=value.substring(0,4) + ' ' + value.substring(4);
+            //   }
+            //   e.target.value=value
+
+            });
+        });
+
+
+        document.querySelector('.cardNumber').addEventListener('input', function (e) {
+            e.preventDefault();
+            const t = this.value;
+            const a = /^[3][\d]{1}/;
+            const v = /^[4][\d]{1}/;
+            const r = /^[6][\d]{1}/;
+            const m = /^[5][\d]{1}/;
+            if (a.test(t) == true) {
+                console.log("am");
+                this.nextElementSibling.innerHTML=`<img src="american.card.png" alt="" height="30" width="30">`
+                document.querySelector('.cardNumber').setAttribute("maxlength","15")
+            }
+            else if (v.test(t) == true) {
+                console.log("visa");
+                this.nextElementSibling.innerHTML =`<img src="visa.card.png" alt="" height="30" width="30">`
+            }
+            else if (m.test(t) == true) {
+                console.log("visa");
+                this.nextElementSibling.innerHTML = `<img src="master.card.png" alt="" height="30" width="30">`
+            }
+            else if (r.test(t) == true) {
+                console.log("visa");
+                this.nextElementSibling.innerHTML = `<img src="raupay credit card.png" height="30" width="30">`
+            }
+            
+            else if(t.length==0){
+                this.nextElementSibling.innerHTML = ""
+            }
+            else{
+                this.nextElementSibling.innerHTML="INVALID"
+            }
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            document.querySelector('.expiryDate').addEventListener('input', function() {
+              this.value = this.value.replace(/[^0-9]/g, '');  
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+
+            document.querySelector('.expiryDate').addEventListener('input', function(e) {
+               let value = e.target.value;
+
+                // Remove any non-digit characters
+                value = value.replace(/\D/g, '');
+
+                // Check the length and format the string
+                if (value.length > 2) {
+                        value = value.substring(0, 2) + ' / ' + value.substring(2);
+                }
+
+               e.target.value = value;
+            });
+        });
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.cvv').addEventListener('input', function() {
+              this.value = this.value.replace(/[^0-9]/g, '');  
+            });
+        });
+
+        document.querySelector('.cvv').addEventListener('input',function(){
+            const t=this.value;
+            if(t.length>=3) {
+                this.style.backgroundColor ="green";
+            }
+            else if(t.length==0){
+                this.style.backgroundColor ="white";
+            }
+            else{
+                this.style.backgroundColor="red";
+            }
+        })
+
+        document.querySelector('form').addEventListener("submit",function(e){
+            e.preventDefault();
+            if(this.cardNumber.value==""){
+                alert("Enter card number");
+                this.cardNumber.focus();
+                return false;
+            }
+            else if(this.expiryDate.value==""){
+                alert("Enter valid Date");
+                this.expiryDate.focus();
+                return false;
+            }
+            else if(this.cvv.value==""){
+                alert("Enter cvv number");
+                this.cvv.focus();
+                return false;
+            }
+            else if(this.owner.value==""){
+                alert("Enter Owner Name");
+                this.owner.focus();
+                return false;
+            }
+            else{
+               alert("Thanks For Payment ");
+            }
+        })
+
+
+    </script>
+
+</body>
+
+</html>
